@@ -4,16 +4,15 @@ form.addEventListener('submit', onFormSumbit);
 
 function onFormSumbit(event) {
   event.preventDefault();
-  const email = event.currentTarget.elements.email.value;
-  const password = event.currentTarget.elements.password.value;
-  const formData = {
-    email,
-    password,
-  };
-  
-  email === ""|| password === ""
-  ? alert('всі поля повинні бути заповнені')
-  : console.log(formData);
+  const {
+    elements: { email, password }
+  } = event.currentTarget;
+ 
+  if (email.value === "" || password.value === "") {
+  return alert('Всі поля повинні бути заповнені')
+}
+ console.log(`Email: ${email.value}, password: ${password.value}`)
+
   event.currentTarget.reset();
 }
   
